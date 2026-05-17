@@ -1,0 +1,109 @@
+﻿#include <iostream>
+#include "Rational.h"
+
+using namespace std;
+
+
+int main()
+{
+    setlocale(LC_ALL, "RU");
+
+    int num1, den1;
+    int num2, den2;
+
+    cout << "Введите числитель первой дроби: ";
+    cin >> num1;
+
+    cout << "Введите знаменатель первой дроби: ";
+    cin >> den1;
+
+    while (den1 == 0)
+    {
+        cout << "Ошибка! Знаменатель не может быть равен 0.\n";
+        cout << "Введите знаменатель повторно: ";
+        cin >> den1;
+    }
+
+    cout << "\nВведите числитель второй дроби: ";
+    cin >> num2;
+
+    cout << "Введите знаменатель второй дроби: ";
+    cin >> den2;
+
+    while (den2 == 0)
+    {
+        cout << "Ошибка! Знаменатель не может быть равен 0.\n";
+        cout << "Введите знаменатель повторно: ";
+        cin >> den2;
+    }
+
+    // Создание объектов
+    Rational a(num1, den1);
+    Rational b(num2, den2);
+
+    // Контрольный вывод
+    cout << "\nВведенные дроби:\n";
+
+    cout << "Первая дробь: ";
+    a.print();
+
+    cout << "\nВторая дробь: ";
+    b.print();
+
+    // Демонстрация операций
+    cout << "\n\nСложение: ";
+    (a + b).print();
+
+    cout << "\nВычитание: ";
+    (a - b).print();
+
+    cout << "\nУмножение: ";
+    (a * b).print();
+
+    cout << "\nДеление: ";
+    (a / b).print();
+
+    // Операции с int
+    cout << "\n\nОперации с int:";
+
+    cout << "\na + 2 = ";
+    (a + 2).print();
+
+    cout << "\na - 1 = ";
+    (a - 1).print();
+
+    cout << "\na * 3 = ";
+    (a * 3).print();
+
+    cout << "\na / 2 = ";
+    (a / 2).print();
+
+    // Унарный минус
+    cout << "\n\nУнарный минус первой дроби: ";
+    (-a).print();
+
+    // Сравнение
+    cout << "\n\nПроверка ==";
+
+    if (a == b)
+        cout << "\nДроби равны";
+    else
+        cout << "\nДроби не равны";
+
+    // +=
+    cout << "\n\nПроверка +=";
+
+    Rational c = a;
+
+    cout << "\nДо операции: ";
+    c.print();
+
+    c += b;
+
+    cout << "\nПосле c += b: ";
+    c.print();
+
+    cout << "\n";
+
+    return 0;
+}
